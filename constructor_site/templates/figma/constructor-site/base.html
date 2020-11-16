@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+  <link rel="stylesheet" href="{% static 'css/figma/bootstrap.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/font-awesome.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/flaticon.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/slicknav.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/jquery-ui.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/owl.carousel.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/animate.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/app.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/fonts.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/figma/style.css' %}"/>
+	<title></title>
+</head>
+<body>
+  <header class="header-section">
+    <div class="header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center text-lg-left">
+            <!-- logo -->
+        
+              <img src="{% static 'figma/img/logo.png' %}" alt="">       
+                 </div>
+          <!--<div class="col-xl-6 col-lg-5">
+            <form class="header-search-form">
+              <input type="text" placeholder="Поиск товара ....">
+              <button><i class="flaticon-search"></i></button>
+            </form>
+          </div>-->
+        </div>
+      </div>
+    </div>
+    <nav class="main-navbar">
+      <div class="container">
+        <!-- menu -->
+        <ul class="main-menu">
+          <li><a href="#">Главная страница</a></li>
+          <li><a href="#">Для парня / отца</a></li>
+          <li><a href="#">Для девушки / мамы</a></li>
+          <li><a href="#">Для новорожденного</a></li>
+
+
+          <!--li><a href="#">Shoes</a>
+            <ul class="sub-menu">
+              <li><a href="#">Sneakers</a></li>
+              <li><a href="#">Sandals</a></li>
+              <li><a href="#">Formal Shoes</a></li>
+              <li><a href="#">Boots</a></li>
+              <li><a href="#">Flip Flops</a></li>
+            </ul>
+          </li-->
+          <!--li><a href="#">Pages</a>
+            <ul class="sub-menu">
+              <li><a href="./product.html">Product Page</a></li>
+              <li><a href="./category.html">Category Page</a></li>
+              <li><a href="./categorynew.html">Cart Page</a></li>
+              <li><a href="./checkout.html">Checkout Page</a></li>
+              <li><a href="./contact.html">Contact Page</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Blog</a></li-->
+        </ul>
+      </div>
+    </nav>
+  </header>
+	{% block content %}
+
+	{% endblock %}
+
+  <script src="{% static 'js/figma/app.js' %}"></script>
+
+  <script src="{% static 'js/figma/hoverable-collapse.js' %}"></script> 
+  <script src="{% static 'js/figma/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'js/figma/jquery-ui.min.js' %}"></script>
+  <script src="{% static 'js/figma/jquery.nicescroll.min.js' %}"></script>
+  <script src="{% static 'js/figma/jquery.slicknav.min.js' %}"></script>
+  <script src="{% static 'js/figma/jquery.zoom.min.js' %}"></script>
+  <script src="{% static 'js/figma/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/figma/main.js' %}"></script>
+  <script src="{% static 'js/figma/map.js' %}"></script>
+  <script src="{% static 'js/figma/off-canvas.js' %}"></script>
+  <script src="{% static 'js/figma/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/figma/Preview.js' %}"></script>
+  <script src="{% static 'js/figma/template.js' %}"></script>
+  <script src="{% static 'js/js.cookie.min.js' %}"></script>
+	
+	<script type="text/Javascript">
+    	var csrftoken = Cookies.get('csrftoken');
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+        $(document).ready(function(){
+            {% block domready %}
+            {% endblock %}
+        });
+
+    </script>
+{%block modal%} {%endblock%}
+<br><br>
+<section class="footer-section">
+    <div class="social-links-warp">
+      <div class="container">
+        <div class="social-links">
+          <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+          <a href="" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
+          <a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+          <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+          <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+          <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+          <a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

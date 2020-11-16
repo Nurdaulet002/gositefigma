@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>YoraUI Admin</title>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/manager/style.css">
+  <link rel="stylesheet" href="css/manager/main.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+<body class="sidebar-fixed">
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center">
+        <a class="navbar-brand brand-logo" href="index.html"><img src="../../images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../images/logo-mini.svg" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+              <i class="fa fa-envelope-o mx-0"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="../../images/faces/face4.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    The meeting is cancelled
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="../../images/faces/face2.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    New product launch
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="../../images/faces/face3.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Upcoming board meeting
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="fa fa-bell-o mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="mdi mdi-information mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="mdi mdi-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="mdi mdi-account-box mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+              <!-- <img src="../../images/faces/face5.jpg" alt="profile"/> -->
+              <i class="fa fa-user-o"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="mdi mdi-settings "></i>
+                Settings
+              </a>
+              <a class="dropdown-item">
+                <i class="mdi mdi-logout"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="fa fa-bars"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+              <span class="menu-title">Заказы</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+              <span class="menu-title"> Сообщение</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+              <span class="menu-title">Конструктор сайта</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+  <!-- main-panel-->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <!-- Header section -->
+            <header class="header-section">
+              <div class="header-top">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 text-center">
+                      <!-- logo -->
+                      <a href="" class="site-logo">
+                        <img src="http://work.biotelemedicina.com/img/logo.png" alt="">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <nav class="main-navbar">
+                <div class="container">
+                  <!-- menu -->
+                  <ul class="main-menu">
+                    <li><a href="#">Главная страница</a></li>
+                    <!--li><a href="#">Для парня / отца</a></li>
+                    <li><a href="#">Для девушки / мамы</a></li>
+                    <li><a href="#">для новорожденного</a></li-->
+                  </ul>
+                </div>
+              </nav>
+            </header>
+            <!-- Header section end -->
+              <!-- product section -->
+            <form action="" method="POST" enctype="multipart/form-data">
+              <section class="product-section">
+                <div class="container">
+                  <!-- <input type="submit" class="btn btn-sm btn-primary" name="" value="Сохранить"> -->
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"  data-interval="false" style="">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div id="image-preview-extra" class="carusel-wh">
+                              <div class="box">
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div id="image-preview-extra1" class="carusel-wh">
+                              <div class="box">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="fa fa-chevron-left icon-slaider"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="fa fa-chevron-right icon-slaider"></span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 product-details">
+                      <span styl e="font-weight: 500;">Наименования товара:</span>
+                      <input type="text" class="form-control">
+                      <span style="font-weight: 500;">Цена товара:</span>
+                      <input type="text" class="form-control">
+                      <span style="font-weight: 500;">Прежная цена товара (акция):</span>
+                      <input type="text" class="form-control">
+                      </h3>
+                      <div class="input-text-modal">
+                        <div class="form-group">
+                            <label for="validationTooltipUsername">Пред. осмотр: </label>
+                            <span id="preview-content" class="font-anastasiaScriptC color-gold font-style"></span>
+                            <input type="text" id="preview-text" class="form-field form-contact"  placeholder="Введите имя или текст ...">
+                            <select name="classes" class="form-control">
+                              <option value="">Выберите шрифт</option>
+                              <option value="font-anastasiaScriptC color-gold font-style" class="font-anastasiaScriptC color-gold font-style">Айгерим</option>
+                              <option value="font-SharonAP" class="font-aiv2 font-style">Айгерим</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Выберите материал:</label>
+                            <button type="button" class="ul-btn" data-toggle="modal" data-target="#exampleModal">Добавить</button>
+                            <ul class="category-menu">
+                                <li >
+                                  <a href="#">test тг </a> 
+                                  <span class="li-span">
+                                    <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"></i>
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                  </span>
+                                </li>               
+                            </ul>
+                          </div>
+                      </div>
+                      <div id="accordion" class="accordion-area">
+                        <div class="panel">
+                          <div class="panel-header" id="headingOne">
+                            <button type="button" style="min-height: 50px;" class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Описание</button>
+                          </div>
+                          <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="panel-body">
+                               Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Sed animi excepturi error accusantium atque, et cupiditate quasi ex similique voluptatibus earum accusamus quam ipsam est numquam consequatur ratione beatae dolorem.
+                              Consequuntur nesciunt officiis veniam earum. Mollitia veritatis cupiditate, eligendi voluptatum ipsum, ipsa possimus consequatur qui, alias, enim quam quibusdam vero numquam excepturi velit dolor non omnis impedit molestias. Dolore, facere.
+                              Incidunt fuga nemo quod earum, repudiandae officia in eius voluptate aspernatur ad dolores temporibus illum recusandae autem molestias nesciunt, dolorum delectus iste eveniet maiores veniam animi non corporis distinctio ipsa.
+                              Beatae perferendis possimus quasi eos harum. Corporis esse eaque magnam nobis doloribus pariatur voluptatibus dolorem error ipsam, atque hic sapiente quidem eligendi, quaerat mollitia quas ea perspiciatis quos illum architecto?
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel">
+                          <div class="panel-header" id="headingTwo">
+                            <button type="button" class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Подробности </button>
+                          </div>
+                          <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="panel-body">
+                              Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Sed animi excepturi error accusantium atque, et cupiditate quasi ex similique voluptatibus earum accusamus quam ipsam est numquam consequatur ratione beatae dolorem.
+                              Consequuntur nesciunt officiis veniam earum. Mollitia veritatis cupiditate, eligendi voluptatum ipsum, ipsa possimus consequatur qui, alias, enim quam quibusdam vero numquam excepturi velit dolor non omnis impedit molestias. Dolore, facere.
+                              Incidunt fuga nemo quod earum, repudiandae officia in eius voluptate aspernatur ad dolores temporibus illum recusandae autem molestias nesciunt, dolorum delectus iste eveniet maiores veniam animi non corporis distinctio ipsa.
+                              Beatae perferendis possimus quasi eos harum. Corporis esse eaque magnam nobis doloribus pariatur voluptatibus dolorem error ipsam, atque hic sapiente quidem eligendi, quaerat mollitia quas ea perspiciatis quos illum architecto?
+                           
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel">
+                          <div class="panel-header" id="headingThree">
+                            <button type="button" class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">доставка и возврат</button>
+                          </div>
+                          <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="panel-body">
+                               Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Sed animi excepturi error accusantium atque, et cupiditate quasi ex similique voluptatibus earum accusamus quam ipsam est numquam consequatur ratione beatae dolorem.
+                              Consequuntur nesciunt officiis veniam earum. Mollitia veritatis cupiditate, eligendi voluptatum ipsum, ipsa possimus consequatur qui, alias, enim quam quibusdam vero numquam excepturi velit dolor non omnis impedit molestias. Dolore, facere.
+                              Incidunt fuga nemo quod earum, repudiandae officia in eius voluptate aspernatur ad dolores temporibus illum recusandae autem molestias nesciunt, dolorum delectus iste eveniet maiores veniam animi non corporis distinctio ipsa.
+                              Beatae perferendis possimus quasi eos harum. Corporis esse eaque magnam nobis doloribus pariatur voluptatibus dolorem error ipsam, atque hic sapiente quidem eligendi, quaerat mollitia quas ea perspiciatis quos illum architecto?
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><button type="submit" class="btn-s"><i class="fa fa-check"></i></button></div>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Информация о материале </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <table class="table table-bordered">
+                          <tr>
+                            <th>Наименование</th>
+                            <th>Стоимость</th>
+                          </tr>
+                          {% for  value in product_materials %}
+                            <tr id="content-{{value.id}}">
+                              <td>
+                                <input type="text" name="material_title" value="{{value.material.title}}" class="form-control">
+                              </td>
+                              <td>
+                                <input type="number" name="material_price" value="{{value.price}}" class="form-control">
+                              </td>
+                              <td>
+                                <button class="btn btn-danger btn-xs remove-content" data-id="{{value.id}}">x</button>
+                              </td>
+                            </tr>
+                          {% endfor %}
+                          <tr>
+                            <td>
+                              <input type="text" name="material_title" class="form-control">
+                            </td>
+                            <td>
+                              <input type="number" name="material_price" class="form-control">
+                            </td>
+                            <td>
+                              <button class="btn btn-success btn-xs add-content">+</button>
+                            </td>
+                          </tr>
+                          <tbody id="append-content"></tbody>
+                        </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <input type="submit" name="send-material" class="btn btn-sm btn-primary" value="Отправить">
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal -->
+            </form>
+            <!-- RELATED PRODUCTS section -->
+            <!-- Footer section -->
+            <section class="footer-section">
+              <div class="social-links-warp">
+                <div class="container">
+                  <div class="social-links">
+                    <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                    <a href="" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
+                    <a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+                    <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                    <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+                    <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+                    <a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- Footer section end -->
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- main-panel ends -->
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+</body>
+
+</html>
+
+
+

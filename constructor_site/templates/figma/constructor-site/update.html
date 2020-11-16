@@ -1,0 +1,12 @@
+<form action="{% url 'figma:update_good' good=good.id user_site=user_site %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+    <p>Введите name</p>
+    {{good_form.title}}
+    {{good_form.price}}
+    {{good_form.top}}
+    {{good_form.category}}
+    {{good_form.photo}}
+
+    <input type="submit" value="сохранить" style="color:blue;" >
+</form>
+

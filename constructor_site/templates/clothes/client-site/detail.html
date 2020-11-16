@@ -1,0 +1,176 @@
+{% extends 'clothes/client-site/base.html' %}
+{% load static %}
+{% load sale_tags %}
+{% block content %}
+	<section>
+                <div class="container">
+                    <div class="product-single">
+                        <div class="row mb24 mb-xs-48">
+                            <div class="col-md-5 col-sm-6">
+                                <div class="image-slider slider-thumb-controls controls-inside">
+                                    <span class="label">Sale</span>
+                                    <ul class="slides">
+                                    	{% if good.photo %}
+                                        <li>
+                                            <img alt="Image" src="{{good.photo.url}}" />
+                                        </li>
+                                        {% endif %}
+
+                                        {% if good.photo2 %}
+                                        <li>
+                                            <img alt="Image" src="{{good.photo2.url}}" />
+                                        </li>
+                                        {% endif %}
+
+                                        {% if good.photo3 %}
+                                        <li>
+                                            <img alt="Image" src="{{good.photo3.url}}" />
+                                        </li>
+                                        {% endif %}
+                                        {% if good.photo4 %}
+                                        <li>
+                                            <img alt="Image" src="{{good.photo4.url}}" />
+                                        </li>
+                                        {% endif %}
+
+                                    </ul>
+                                </div>
+                                <!--end of image slider-->
+                            </div>
+                            <div class="col-md-5 col-md-offset-1 col-sm-6">
+                                <div class="description">
+                                    <h4 class="uppercase">{{good.title}}</h4>
+                                    <div class="mb32 mb-xs-24">
+                                        <!--<span class="number price old-price">$</span>-->
+                                        <span class="number price">${{good.price}}</span>
+                                    </div>
+                                    <p>
+                                        {{good.description}}
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>SKU:</strong> {{good.counter}}</li>
+                                        <li>
+                                            <strong>COLOURS:</strong>{{good.color}}</li>
+                                        <li>
+                                            <strong>SIZES:</strong> {{good.sizes}}</li>
+                                    </ul>
+                                </div>
+                                <hr class="mb48 mb-xs-24">
+                                <form class="add-to-cart">
+                                    <input type="text" placeholder="QTY" />
+                                    <input type="submit" value="Add To Cart" />
+                                </form>
+                            </div>
+                        </div>
+                        <!--end of row-->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="tabbed-content text-tabs">
+                                    <ul class="tabs">
+                                        <li>
+                                            <div class="tab-title">
+                                                {% get_additional_data 'raitingtitle' as raitingtitle %}
+                                                  <span id="raitingtitle">
+                                                     {{raitingtitle.label|default:"--"}}
+                                                  </span>
+                                            </div>
+                                            <div class="tab-content">
+                                            {% for coment in coments %}
+                                                <ul class="ratings">
+                                                	
+                                                    <li>
+                                                        <div class="user">
+                                                            <ul class="list-inline star-rating">
+                                                                <li>
+                                                                    <i class="ti-star"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="ti-star"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="ti-star"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="ti-star"></i>
+                                                                </li>
+                                                            </ul>
+                                                            <span class="bold-h6">{{coment.name}}</span>
+                                                            <span class="date number">{{coment.date}}</span>
+                                                        </div>
+                                                        <p>
+                                                            {{coment.text}}
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            {% endfor %}
+                                                <!--end of ratings-->
+                                                {% get_additional_data 'ostavitotzyf' as ostavitotzyf %}
+                                                  <h6 class="uppercase" id="ostavitotzyf">
+                                                     {{ostavitotzyf.label|default:"--"}}
+                                                  </h6>
+                                                <form class="ratings-form" action="" method="post">
+                                                	{% csrf_token %}
+                                                    <div class="overflow-hidden">
+                                                        <span pattern="soin">{{coment_form.name}}</span>
+                                                        {{coment_form.email}}
+                                                    </div>
+                                                    <!--
+                                                    <div class="select-option">
+                                                        <i class="ti-angle-down"></i>
+                                                        <select>
+                                                            <option selected value="Default">Select A Rating</option>
+                                                            <option value="1">1 Star</option>
+                                                            <option value="2">2 Stars</option>
+                                                            <option value="3">3 Stars</option>
+                                                            <option value="4">4 Stars</option>
+                                                            <option value="5">5 Stars</option>
+                                                        </select>
+                                                    </div>-->
+                                                    {{coment_form.text}}
+                                                    <input type="submit" value="отправит коментарии" />
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--end of text tabs-->
+                            </div>
+                        </div>
+                        <!--end of row-->
+                    </div>
+                    <!--end of product single-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="pt0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {% get_additional_data 'textontopgood' as textontopgood %}
+                              <h4 class="uppercase mb80 mb-xs-40" id="textontopgood">
+                                 {{textontopgood.label|default:"--"}}
+                              </h4>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                    	{% for good in goods %}
+                        <div class="col-md-3 col-sm-4">
+                        	
+                            <div class="image-tile outer-title text-center">
+                                <a href="{% url 'clothes:detail' good=good.id user_site='wedf' %}">
+                                    <img alt="Pic" class="product-thumb" src="{{good.photo.url}}" />
+                                </a>
+                                <div class="title">
+                                    <h5 class="mb0">
+                                        <br />{{good.title}}</h5>
+                                    <span class="display-block mb16">${{good.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+{% endblock %}

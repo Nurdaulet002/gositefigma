@@ -1,0 +1,288 @@
+{% extends 'figma/constructor-site/base.html' %}
+{% block content %}
+  <section class="category-section spad">
+    <div class="container">
+      <div class="row">
+      
+        <div class="col-lg-3 order-1 order-lg-1">
+          <div class="filter-widget">
+            <h2 class="fw-title">Категории</h2>
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCategory">Добавить категории   </button>
+             <a href="{% url 'figma:creategood' user_site=user_site %}">
+             Добавить товар</a>
+             <ul class="category-menu">
+                {% for category in categories %}
+                <li >
+                   <a href="{% url 'figma:constructor' category.id %}">{{category.title}}
+                     <span class="delete-category" data-id ="{{category.id}}">
+                       X
+                     </span>
+                      <span class="update-category btn btn-primary" data-id ="{{category.id}} " data-toggle="modal" data-target="#updateCategory">
+                       ®
+                      </span>
+                    </a>
+
+                </li>
+                 {% endfor %}
+                </ul>
+              </div>
+            </div>
+
+        <div class="col-lg-9  order-2 order-lg-2 mb-5 mb-lg-0">
+            
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center">
+                <h2 class="border-b">Топ продаж</h2>
+              </div>
+            </div>
+            
+{%for good in goods %}
+
+            <div class="col-lg-4 col-sm-6">
+
+              <div class="product-item">
+                <br>
+                <div class="pi-pic">
+                <br>
+                       
+                    </div>
+                </div>
+
+                <div class="pi-text">
+                 <div>
+
+    <a href="{% url 'figma:constructor' user_site=user_site %}"></a>
+
+
+    {% if good.photo %}
+    <img src="{{good.photo.url}}" style="width: 300px; height: 200px;">
+    {% endif %}
+
+<a href=""><span class="update-good btn btn-primary" data-id ="{{good.id}} " data-toggle="modal" data-target="#updateGood">редактировать</span></a>
+ <a href="">
+   <span class="remove-good" data-id = "{{good.id}}">
+      X
+   </span>
+</a>
+<br>
+
+{{good.price}} тг
+{{good.title}}
+
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block modal %}
+<div class="modal" id="myCategory">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="{% url 'figma:createcategory' user_site=user_site %}" method="post">
+          {% csrf_token %}
+      <p>Введите название категории</p>
+      {{category_form.title}}
+          <input type="submit"  value="save">
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="myGood">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="{% url 'figma:creategood' user_site %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <p>Введите название товара</p>
+          {{good_form.as_p}}
+          <input type="submit" value="save">
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="updateGood">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" id="good-content">
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="updateCategory">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" id="category-content">
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+{% block domready %}
+  $(document).on("click", ".delete-category", function() {
+
+    event.preventDefault()
+    var id = $(this).data('id')
+    var _this = $(this)
+    $.ajax({
+            url: "{% url 'figma:category_delete' user_site=user_site %}",
+            type: 'POST',
+            data:{category_id: id},
+          
+            success:function (data) {
+
+                _this.closest('li').remove()
+
+            }
+
+        })
+  });
+
+    
+ $(document).on("click", ".remove-good", function() {
+    event.preventDefault()
+    var id = $(this).data('id')
+    var _this = $(this)
+    $.ajax({
+            url: "{% url 'figma:good_delete' user_site=user_site %}",
+            type: 'GET',
+            data:{good_id: id},
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText)
+            },
+            success:function (data) {
+                _this.closest('div').remove()
+            }
+        })
+  });
+    
+
+$(document).on("click", ".update-good", function() {
+    event.preventDefault()
+    var id = $(this).data('id')
+    var _this = $(this)
+    
+    $.ajax({
+            url: "{% url 'figma:update_good' user_site=user_site good=0 %}".replace('0', id),
+            type: 'GET',
+            data:{},
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText)
+            },
+            success:function (data) {
+            $('#good-content').html(data)   
+              
+                
+            }
+        })
+    
+  });
+
+
+  $(document).on("click", ".update-category", function() {
+    event.preventDefault()
+    var id = $(this).data('id')
+    var _this = $(this)
+    
+    $.ajax({
+            url: "{% url 'figma:update_category' user_site=user_site category=0 %}".replace('0', id),
+            type: 'GET',
+            data:{},
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText)
+            },
+            success:function (data) {
+            $('#category-content').html(data)   
+              
+                
+            }
+        })
+    
+  });
+{% endblock %}
+
+

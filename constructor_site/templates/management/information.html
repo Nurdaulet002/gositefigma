@@ -1,0 +1,23 @@
+{% extends 'management/base.html' %}
+{% block content %}
+	<a href="{% url 'login' %}">Войти</a>
+	<a href="{% url 'management:user_registration_page' %}">Регистрация</a>
+	{% if messages %}
+	    {% for message in messages %}
+		    <div class="alert alert-{{ message.tags }}">
+		    	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			    {{ message }}
+			</div>
+	    {% endfor %}
+	{% endif %}
+	<form action="{% url 'management:information_page'%}" method="post">
+		{% csrf_token %}
+		<p>Введите ваше имя</p>
+		{{demand_form.title}}
+		<p>Введите номер телефона</p>
+		{{demand_form.phone}}
+		<br><br>
+		<p>Чтобы сохранить ножми эту Кнопку</p>
+		<input style="color:red;width: 100px;" type="submit" value="save">
+	</form>
+{% endblock %}

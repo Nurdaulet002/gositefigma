@@ -1,0 +1,195 @@
+{% extends 'figma/client-site/base.html' %}
+ {% block content %}
+
+<body class="sidebar-fixed">
+
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    
+  <!-- main-panel-->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <!-- Header section -->
+           
+            <!-- Header section end -->
+              <!-- product section -->
+            <form action="" method="POST" enctype="multipart/form-data">
+              <section class="product-section">
+                <div class="container">
+                  <!-- <input type="submit" class="btn btn-sm btn-primary" name="" value="Сохранить"> -->
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"  data-interval="false" style="">
+                        <div class="carousel-inner">
+                           <div class="carousel-item active">
+                            <div id="image-preview-extra" >
+                              <img src="{{good.photo.url}}">
+                             
+                              <div class="box">
+                               
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="carousel-item">
+                            <div id="image-preview-extra1" class="carusel-wh">
+                              <div class="box">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="fa fa-chevron-left icon-slaider"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="fa fa-chevron-right icon-slaider"></span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 product-details">
+                      <div class="pi-text">  
+                        <h2 class="p-title" style="font-weight: 400;">{{good.title}}</h2>
+                        <h3 class="p-price" style="font-weight: 600;">
+                          {{good.price}} тг
+              <del style="color: #de0047;font-weight: 600;margin-left: 5px;font-size: 18px;">
+                20000 тг
+              </del>
+                      </h3>
+                   
+
+
+                      </h3><br>
+                      <div class="input-text-modal">
+                        <div class="form-group">
+                            <label for="validationTooltipUsername" id="css_cs_cursor" style="font-size: 22px;">Пред. осмотр: </label>
+
+                            <span id="preview-content" class="font-anastasiaScriptC color-gold font-style"></span>
+                            <br>
+
+                            <input type="text" id="preview-text" class="form-field form-contact"  placeholder="Введите имя или текст ...">
+<div class="form-group">
+                <label for="exampleFormControlSelect1" id="css_cs_cursor" style="font-size: 22px; ">Выберите материал:</label>
+                <select class="form-control form-contact">
+                  <option value="Серебро">Серебро</option>
+                  <option value="Подзолото">Подзолото</option>
+                  <option value="Золото">Золото</option>
+                </select>
+              </div>
+                          <div class="form-group">
+                           <a href="" class="site-btn" data-toggle="modal" data-target="#exampleModal">Заказать</a>
+
+                          </div>
+                      </div>
+
+ <div id="accordion" class="accordion-area">
+            <div class="panel">
+              <div class="panel-header" id="headingOne">
+                <button style="min-height: 50px;" class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Описание</button>
+              </div>
+              <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="panel-body">
+                  {{good_form.description}}
+                  jjjj
+                  <p class="p-text"></p>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header" id="headingTwo">
+                <button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Подробности </button>
+              </div>
+              <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="panel-body">
+                     {{good_form.detail}}
+                  <p>Цвет <output class="pull-right">Розовое Золото</output> </p>
+                  <p>Материал <output class="pull-right">Серебряный</output> </p>
+                  <p>Вес <output class="pull-right">2,36 Г</output> </p>
+                  <p>Рост <output class="pull-right">8-10мм</output> </p>
+                  <p>Толщина <output class="pull-right">1мм</output> </p>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header" id="headingThree">
+                <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">доставка и возврат</button>
+              </div>
+              <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="panel-body">
+                     {{good_form.Shipping_Returns}}
+                  <p>Вы можете выбрать способ доставки при оформлении заказа</p>
+                  <p>Доставка в среднем : <span>3 - 4 дня</span></p>
+                  <p>Сертификат качества на 3 года.  За это время мы вам, совершенно БЕСПЛАТНО: почистим, отремантируем</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+                  </div>
+
+                </div>
+              </section>
+              
+                </div>
+              </div>
+              <!-- Modal -->
+            </form>
+            <!-- RELATED PRODUCTS section -->
+            <!-- Footer section -->
+            
+            <!-- Footer section end -->
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- main-panel ends -->
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="js/figma/off-canvas.js"></script>
+  <script src="js/figma/hoverable-collapse.js"></script>
+  <script src="js/figma/template.js"></script>
+</body>
+
+{% endblock %}
+
+{% block modal %}
+<div class="modal" id="exampleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Заказать</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="{% url 'figma:createcategory' user_site %}" method="post">
+          {% csrf_token %}
+      <p>Введите название категории</p>
+      {{category_form.title}}
+          <input type="submit"  value="save">
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

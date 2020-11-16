@@ -1,0 +1,7 @@
+{% extends 'clothes/client-site/base.html' %}
+{% load static %}
+{% block content %}
+	{% for good in goods %}
+		{good.title}
+	{% endfor %}
+{% endblock %}

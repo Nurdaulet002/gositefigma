@@ -1,0 +1,12 @@
+ <div class="col-md-4 col-sm-4 masonry-item col-xs-12">
+    <div class="image-tile outer-title text-center">
+        <a href="{% url 'clothes:detail' good=good.id user_site=user_site %}">
+            <img alt="Pic" class="product-thumb" src="{{good.photo.url}}">
+        </a>
+        <div class="title">
+            <h5 class="mb0">
+                <br /> {{good.title}}</h5>
+            <span class="display-block mb16">${{good.price}}</span>
+        </div>
+    </div>
+</div>

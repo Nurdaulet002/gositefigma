@@ -1,0 +1,9 @@
+{% extends 'management/base.html' %}
+{% block content %}
+<a href="{% url 'management:site_list_page' %}">Добавить сайт</a>
+{% for mysite in mysites %}
+    {{mysite.site.title}}
+{% empty %}
+	У вас нет выбранного сайта
+{% endfor %}
+{% endblock %}

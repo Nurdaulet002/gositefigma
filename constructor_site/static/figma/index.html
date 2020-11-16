@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>YoraUI Admin</title>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/manager/style.css">
+  <link rel="stylesheet" href="css/manager/main.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+<body class="sidebar-fixed">
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center">
+        <a class="navbar-brand brand-logo" href="index.html"><img src="../../images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../images/logo-mini.svg" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+              <i class="fa fa-envelope-o mx-0"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="../../images/faces/face4.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    The meeting is cancelled
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="../../images/faces/face2.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    New product launch
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="../../images/faces/face3.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Upcoming board meeting
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="fa fa-bell-o mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="mdi mdi-information mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="mdi mdi-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="mdi mdi-account-box mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+              <!-- <img src="../../images/faces/face5.jpg" alt="profile"/> -->
+              <i class="fa fa-user-o"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="mdi mdi-settings "></i>
+                Settings
+              </a>
+              <a class="dropdown-item">
+                <i class="mdi mdi-logout"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="fa fa-bars"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+              <span class="menu-title">Заказы</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+              <span class="menu-title"> Сообщение</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+              <span class="menu-title">Конструктор сайта</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <!-- Header section -->
+          <header class="header-section">
+            <div class="header-top">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <!-- logo -->
+                    <a href="" class="site-logo">
+                      <img src="img/logo.png" alt="">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav class="main-navbar">
+              <div class="container">
+                <!-- menu -->
+                <ul class="main-menu menu">
+                  <li><a href="#">Главная страница</a></li>
+                  <a href="" class="a-btn" data-toggle="modal" data-target="#exampleModal">Добавить</a>
+                </ul>
+              </div>
+            </nav>
+          </header>
+          <!-- Header section end -->
+          <!-- Hero section -->
+          <section class="hero-section">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"  data-interval="false">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="img/bg.jpg" class="d-block w-100 carusel-wh"  alt="...">
+                </div>
+                <div class="carousel-item">
+                  <button class="ul-btn carusel-wh" data-toggle="modal" data-target="#exampleModal">Добавить</button>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="fa fa-chevron-left icon-slaider"></span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="fa fa-chevron-right icon-slaider"></span>
+              </a>
+            </div>
+          </section>
+          <!-- Hero section -->
+          <!-- Category section -->
+          <section class="category-section">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-3 order-1 order-lg-1">
+                  <div class="filter-widget">
+                    <h2 class="fw-title">Категории</h2>
+                    <button class="ul-btn" data-toggle="modal" data-target="#categoryModal">Добавить</button>
+                    <ul class="category-menu">
+                        <li>
+                          <a href="#">test
+                          </a>
+                          <span class="li-span">
+                            <i class="fa fa-pencil edit-category" data-id="{{category.id}}" aria-hidden="true" data-toggle="modal" data-target="#categoryModal">
+                            </i>&nbsp&nbsp
+                            <i class="fa fa-trash remove-category" data-id="{{category.id}}" aria-hidden="true" data-toggle="modal" data-target="#removeCategoryModal"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <a href="">Категории не добавлены</a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-lg-9  order-2 order-lg-2 mb-5 mb-lg-0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="text-center">
+                        <h2 class="border-b">ТОП ПРОДАЖ</h2> 
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="add" data-toggle="modal" data-target="#productModal">
+                        <div class="add-images">
+                          <i class="fa fa-plus plus" aria-hidden="true"></i>
+                          <label>Добавить</label>
+                        </div>
+                      </div>
+                    </div>
+
+                      <div class="col-lg-4 col-sm-6">
+                        <div class="product-item">
+                          <div class="pi-pic">
+                              <div class="tag-sale">Акция</div>
+                            <a href="{% url kind_url id=product.id %}">
+                              <img src="img/103287463_1669788829844202_664554191300107766_n.jpg" alt="">
+                            </a>
+                            <div class="pi-links">
+                              <a href="#" class="wishlist-btn edit-product" data-id="{{product.id}}" data-toggle="modal" data-target="#productModal">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                              </a>
+                              <a href="#" class="wishlist-btn remove-product" data-id="{{product.id}}" data-toggle="modal" data-target="#removeProductModal">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="pi-text">
+                            <span class="span-tg" style="color:#e81150;font-weight: bold;">900 тг</span>
+                              <del>900 тг</del>
+                            <p style="color:#9a9a9a;">sdsdsdsds</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>      
+                </div>
+              </div>
+            </section>
+          </div>
+        <!-- Category section end -->
+        <!-- Footer section -->
+        <section class="footer-section">
+          <div class="social-links-warp">
+            <div class="container">
+              <div class="social-links">
+                <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                <a href="" class="a-btn" data-toggle="modal" data-target="#exampleModal">Добавить</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Footer section end -->
+        </div>
+
+<!-- Modal category -->
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Добавить категории </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="remove-product-content">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Закрыть</button>
+          <input type="submit" name="product-remove-submit" class="btn btn-sm btn-danger" value="Удалить">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal category end -->
+<!-- Modal product -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Подтвердите удаление </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="remove-product-content">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Название продукта : </label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Выберите изображения : </label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Выберите категорию : </label>
+            <select name="" id="" class="form-control">
+              <option value=""></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Стоимость : </label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Прежная стоимость (при акции) : </label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Вывести в топ : </label> 
+            <select name="" id="" class="form-control">
+              <option value=""></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Выберите вид : </label> 
+            <select name="" id="" class="form-control">
+              <option value=""></option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Закрыть</button>
+          <input type="submit" name="product-remove-submit" class="btn btn-sm btn-danger" value="Удалить">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal product end -->
+<!-- Modal remove product -->
+<div class="modal fade" id="removeProductModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Подтвердите удаление </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="remove-product-content">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Закрыть</button>
+          <input type="submit" name="product-remove-submit" class="btn btn-sm btn-danger" value="Удалить">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal remove product end -->
+<!-- Modal remove category -->
+<div class="modal fade" id="removeCategoryModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Подтвердите удаление </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="remove-category-content">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Закрыть</button>
+          <input type="submit" name="category-remove-submit" class="btn btn-sm btn-danger" value="Удалить">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+ <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+</body>
+
+</html>

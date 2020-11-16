@@ -1,0 +1,274 @@
+{% extends 'clothes/client-site/base.html' %}
+{% load static %}
+{% load sale_tags %}
+{% block content %}
+   <section class="page-title page-title-2 image-bg overlay parallax">
+                <div class="background-image-holder">
+                  {% get_additional_data 'phototoslide' as phototoslide %}
+                     <img alt="Background Image" id="phototoslide" class="background-image" src="{{phototoslide.photo.url|default:'--'}}">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                           {% get_additional_data 'textonslid' as textonslid %}
+                              <h2 class="uppercase mb8" id="textonslid">
+                                 {{textonslid.label|default:"--"}}
+                              </h2>
+
+                           {% get_additional_data 'textonslid2' as textonslid2 %}
+                              <p class="lead mb0" id="textonslid2">
+                                 {{textonslid2.label|default:"--"}}
+                              </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div style="text-align: center; font-size: 20px" class="">
+                           {% get_additional_data 'textunderslide' as textunderslide %}
+                              <p id="textunderslide">
+                                 {{textunderslide.label|upper}}
+                              </p>
+                        </div>
+                        <div class="col-md-10 text-right">
+                            <span class="input-lh"></span>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row masonry">
+                     {% for good in goods %}
+                        <div class="col-md-4 col-sm-4 masonry-item col-xs-12">
+                            <div class="image-tile outer-title text-center">
+                                <a href="{% url 'clothes:detail' good=good.id user_site='wedf' %}">
+                                    <img alt="Pic" class="product-thumb" src="{{good.photo.url}}">
+                                </a>
+                                <div class="title">
+                                    <h5 class="mb0">
+                                        <br /> {{good.title}}</h5>
+                                    <span class="display-block mb16">${{good.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                     {% endfor %}
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-5">
+                            <h4 class="uppercase">
+                                 {% get_additional_data 'usefulinformation' as usefulinformation %}
+                                    <p  id="usefulinformation">
+                                       {{usefulinformation.label|default:"--"}}
+                                    </p></h4>
+                            <p>
+                                {% get_additional_data 'about' as about %}
+                                    <p  id="about">
+                                       {{about.label|default:"--"}}
+                                    </p>
+                            </p>
+                            <hr>
+                            <p>
+                                {% get_additional_data 'address' as address %}
+                                    <p  id="address">
+                                       {{address.label|default:"--"}}
+                                    </p>
+                            </p>
+                            <hr>
+                            <p>
+                                {% get_additional_data 'email' as email %}
+                                    <p  id="email">
+                                       {{email.label|default:"--"}}
+                                    </p>
+                                {% get_additional_data 'phone' as phone %}
+                                    <p  id="phone">
+                                       {{phone.label|default:"--"}}
+                                    </p>
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col-md-offset-1">
+                            <form class="form-email" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+                                <input type="text" class="validate-required" name="name" placeholder="Your Name" />
+                                <input type="text" class="validate-required validate-email" name="email" placeholder="Email Address" />
+                                <textarea class="validate-required" name="message" rows="4" placeholder="Message"></textarea>
+                                <button type="submit">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <!--end of post snippet-->
+                            <div class="comments">
+                                <h5 class="uppercase">
+                                 {% get_additional_data 'comments' as comments %}
+                                    <p  id="comments">
+                                       {{comments.label|default:"--"}}
+                                    </p>
+                                </h5>
+                                <ul class="comments-list">
+                                    <li>
+                                        <div class="avatar">
+                                            {% get_additional_data 'photouser1' as photouser1 %}
+                                                   <p  id="photouser1">
+                                                      <img src="{{photouser1.photo.url|default:'--'}}">
+                                                   </p>
+                                        </div>
+                                        <div class="comment">
+                                            <span class="uppercase author">
+                                               {% get_additional_data 'Usercomment1' as Usercomment1 %}
+                                                <p  id="Usercomment1">
+                                                   {{Usercomment1.label|default:"--"}}
+                                                </p>
+                                            </span>
+                                            <p>
+                                                {% get_additional_data 'comment1' as comment1 %}
+                                                   <p  id="comment1">
+                                                      {{comment1.label|default:"--"}}
+                                                   </p>
+                                            </p>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <div class="avatar">
+                                                   {% get_additional_data 'photouser2' as photouser2 %}
+                                                      <p  id="photouser2">
+                                                         <img src="{{photouser2.photo.url|default:'--'}}">
+                                                      </p>
+                                                </div>
+                                                <div class="comment">
+                                                    <span class="uppercase author">
+                                                       {% get_additional_data 'Usercomment2' as Usercomment2 %}
+                                                         <p  id="Usercomment2">
+                                                            {{Usercomment2.label|default:"--"}}
+                                                         </p>
+                                                    </span>
+                                                    <p>
+                                                        {% get_additional_data 'comment2' as comment2 %}
+                                                            <p  id="comment2">
+                                                               {{comment2.label|default:"--"}}
+                                                            </p>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="avatar">
+                                            {% get_additional_data 'photouser3' as photouser3 %}
+                                                <p  id="photouser3">
+                                                   <img src="{{photouser3.photo.url|default:'--'}}">
+                                                </p>
+                                        </div>
+                                        <div class="comment">
+                                            <span class="uppercase author">
+                                               {% get_additional_data 'Usercomment3' as Usercomment3 %}
+                                                   <p  id="Usercomment3">
+                                                      {{Usercomment3.label|default:"--"}}
+                                                   </p>
+                                            </span>
+                                            <p>
+                                                {% get_additional_data 'comment2' as comment2 %}
+                                                   <p  id="comment2">
+                                                      {{comment2.label|default:"--"}}
+                                                   </p>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <hr>
+                                {% get_additional_data 'textundercomment' as textundercomment %}
+                                    <h5 class="uppercase"  id="textundercomment">
+                                       {{textundercomment.label|default:"--"}}
+                                    </h5>
+                                <form>
+                                    <input name="name" type="text" placeholder="Your Name" />
+                                    <input name="email" type="text" placeholder="Email Address" />
+                                    <textarea rows="3" placeholder="Comment"></textarea>
+                                    <input type="submit" value="Leave Comment" />
+                                </form>
+                            </div>
+                            <!--end of comments-->
+                        </div>
+                        <!--end of nine col-->
+                    </div>
+                    <!--end of container row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="p0">
+                <div class="map-holder pt160 pb160">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.4086040735224!2d144.976411!3d-37.87412599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66889faebddf1%3A0xcc68084b44a30620!2sRiva+St+Kilda!5e0!3m2!1sen!2sau!4v1427779902899"></iframe>
+                </div>
+            </section>
+	
+				<!--{% get_additional_data 'about' as about %}
+				<p>
+					<a href="" id="about">
+						{{about.label|default:"--"}}
+					</a>
+				</p>
+
+
+				
+			{% if messages %}
+			    {% for message in messages %}
+				    <div class="alert alert-{{ message.tags }}">
+				    	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					    {{ message }}
+					</div>
+			    {% endfor %}
+			{% endif %}
+			<form class="track-order margin-top-60" action="" method="post">
+					{% csrf_token %}
+
+					<div class="input-field">
+
+						<label for="order-id">Ваше имя:</label>
+						<p name="order-id" type="text" class="input-text" id="order-id" >
+							{{demand_form.title}}
+						</p>
+
+					</div>--><!-- .input-field -->
+
+
+
+					<!--<div class="input-field">
+
+						<label for="email">Телефон ном:</label>
+						<p name="email" type="email" class="input-text" id="email" >
+							{{demand_form.phone}}
+					    </p>
+
+					</div>--><!-- .input-field -->
+
+
+
+					<!--<div class="input-field">
+						<input class="btn btn-lg btn-primary" type="submit" value="save">
+
+					</div>--><!-- .input-field -->
+<!--
+				</form>
+		</div>-->
+
+{% endblock %}

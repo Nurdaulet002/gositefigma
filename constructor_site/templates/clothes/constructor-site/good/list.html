@@ -1,0 +1,168 @@
+{% extends 'clothes/constructor-site/base.html' %}
+{% load sale_tags %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-md-push-3">
+                
+                <!--end of row-->
+                <div class="row masonry">
+                  {% for good in goods %}
+                  <div class="col-md-4 col-sm-4 masonry-item col-xs-12">
+                    <div class="image-tile outer-title text-center">
+                        <a href="{% url 'clothes:detail' good=good.id user_site='wedf' %}">
+                            <img alt="Pic" class="product-thumb" src="{{good.photo.url}}" />
+                        </a>
+                        <div class="title">
+                            <h5 class="mb0">
+                                <br />{{good.title}}</h5>
+                                <span class="display-block mb16">${{good.price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!--end of row-->
+                <div class="text-center mt40">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--end of nine col-->
+            <div class="col-md-3 col-md-pull-9 hidden-sm">
+                <div class="widget">
+                    {% get_additional_data 'categorytitle' as categorytitle %}
+                    <h6 class="title" id="categorytitle">
+                       {{categorytitle.label|default:"--"}}
+                   </h6>
+                   <hr>
+                   
+                   <button type="button" data-toggle="modal" data-target="#ModalAddSubcategory">
+                    <div style="border: 2px dashed black; width: 200px; height: auto;text-align: center ">
+                        <span style="color:orange">
+                         Добавить подкатегории
+                     </span>
+                 </div> 
+             </button>
+
+             <ul class="link-list">
+              {% for undercategory in undercategories %}
+              <li>
+                {% if undercategory %}
+                <a href="{% url 'clothes:good_list' category=category  subcategory=undercategory.id  user_site=user_site %}">{{undercategory.title}}</a>
+                {% else %}
+                <a href="">no category</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!--end of widget-->
+    <div class="widget">
+        {% get_additional_data 'searchgoodtitle' as searchgoodtitle %}
+        <h6 class="title" id="searchgoodtitle">
+           {{searchgoodtitle.label|default:"--"}}
+       </h6>
+       <hr>
+       <form>
+        <input class="mb0" type="text" placeholder="Type Here" />
+    </form>
+</div>
+<!--end of widget-->
+<div class="widget">
+    {% get_additional_data 'populargoodstitle' as populargoodstitle %}
+    <h6 class="title" id="populargoodstitle">
+       {{populargoodstitle.label|default:"--"}}
+   </h6>
+   <hr>
+   <ul class="cart-overview">
+    {% get_good_limit list_goods=list_goods limit=3 as goods_list %}
+    {% for good in goods_list %}
+    <li>
+        <a href="#">
+            {% if good.photo2 %}
+            <img alt="Product" src="{{good.photo2.url}}" />
+            <div class="description">
+                <span class="product-title">{{good.title}}</span>
+                <span class="price number">${{good.price}}</span>
+            </div>
+            {% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+<!--end of widget-->
+<div class="widget">
+    {% get_additional_data 'aboutgoodtitle' as aboutgoodtitle %}
+    <h6 class="title" id="aboutgoodtitle">
+       {{aboutgoodtitle.label|default:"--"}}
+   </h6>
+   <hr>
+   {% get_additional_data 'aboutgoodtext' as aboutgoodtext %}
+   <p id="aboutgoodtext">
+       {{aboutgoodtext.label|default:"--"}}
+   </p>
+</div>
+<!--end of widget-->
+
+<!--end of widget-->
+</div>
+<!--end of sidebar-->
+</div>
+<!--end of container row-->
+</div>
+<!--end of container-->
+</section>
+{% endblock %}
+{% block modal %}
+<!-- Modal -->
+<div class="modal fade" id="ModalAddSubcategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form action="{% url 'clothes:creat_subcategory' user_site=user_site category=category %}" method="post">
+        {% csrf_token %}
+        <p>{{subcategory_form.title}}</p>
+        <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

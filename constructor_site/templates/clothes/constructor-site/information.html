@@ -1,0 +1,264 @@
+{% extends 'clothes/constructor-site/base.html' %}
+{% load static %}
+{% load sale_tags %}
+{% block content %}
+<section class="page-title page-title-2 image-bg overlay parallax">
+
+                <div class="background-image-holder">
+                  {% get_additional_data 'phototoslide' user_site as phototoslide %}
+                  <img alt="Background Image" class="background-image update-photo" src="{{phototoslide.photo.url}}" data-element_id="{{phototoslide}}">
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                           {% get_additional_data 'textonslid' user_site as textonslid %}
+                              <h2 class="uppercase mb8 update-additional-data" data-element_id="textonslid" data-type='label' contenteditable="true">
+                                 {{textonslid|default:"Men's Shop"}}
+                              </h2>
+
+                           {% get_additional_data 'textonslid2' user_site as textonslid2 %}
+                              <p class="lead mb0 update-additional-data" data-element_id="textonslid2" data-type='label' contenteditable="true">
+                                 {{textonslid2|default:"Біздің өнімдер тек турциядан келеді"}}
+                              </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <input type="file" class="update-photo-on-slide" name="" value="upload photo">
+
+<section>
+                <div class="container">
+                    <div class="row">
+                        <div style="text-align: center; font-size: 20px" class="">
+                           {% get_additional_data user_site 'textunderslide' as textunderslide %}
+                              <p id="textunderslide">
+                                 {{textunderslide.label|upper}}
+                              </p>
+                        </div>
+                        <div class="col-md-10 text-right">
+                            <span class="input-lh"></span>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="col-md-4 col-sm-4 masonry-item col-xs-12">
+                    <a href="{% url 'clothes:creat_good' user_site=user_site %}">
+                      <div style="border: 4px dashed black; width: 200px; height: 200px;text-align: center; padding-top: 90px; ">
+                         <span style="color:orange">Добавить товар</span>
+                      </div> 
+                    </a>
+                    </div>
+                    <div class="row masonry" id="good-content">
+                    
+                    
+                      {% for good in goods %}
+                         <div class="col-md-4 col-sm-4 masonry-item col-xs-12">
+                          <span style="color:red" class="delete-good" data-id="{{good.id}}"><i class="fas fa-times"></i></span>
+                            <div class="image-tile outer-title text-center">
+                                <a href="{% url 'clothes:detail' good=good.id user_site=user_site %}">
+                                    <img alt="Pic" class="product-thumb" src="{{good.photo.url}}">
+                                </a>
+
+                                <form action="" method="post" enctype="multipart/form-data">
+                                  <div class="example-1">
+                                    <div class="form-group">
+                                      <label class="label">
+                                        <i class="material-icons">attach_file</i>
+                                        <span class="title">Добавить файл</span>
+                                        <input type="file" class="change-photo" data-id="{{good.id}}">
+                                      </label>
+                                    </div>
+                                  </div>
+                                </form>
+
+
+                                <div class="title">
+                                    <h5 class="mb0 update-good" contenteditable="true" data-id="{{good.id}}" data-type='title'>{{good.title}}</h5>
+                                    <span class="display-block mb16">$<span class="update-good" contenteditable="true" data-id="{{good.id}}" data-type='price'>{{good.price}}</span></span>
+                                </div>
+                            </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                     
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <!--end of post snippet-->
+                            <div class="comments">
+                                <h5 class="uppercase">
+                                 {% get_additional_data 'comments' user_site as comments %}
+                                    <p  id="comments">
+                                       {{comments.label|default:"--"}}
+                                    </p>
+                                </h5>
+                                <ul class="comments-list">
+                                    <li>
+                                        <div class="avatar">
+                                            {% get_additional_data 'photouser1' user_site as photouser1 %}
+                                                   <p  id="photouser1">
+                                                      <img src="{{photouser1.photo.url|default:'--'}}">
+                                                   </p>
+                                        </div>
+                                        <div class="comment">
+                                            <span class="uppercase author">
+                                               {% get_additional_data 'Usercomment1' user_site as Usercomment1 %}
+                                                <p  id="Usercomment1">
+                                                   {{Usercomment1.label|default:"--"}}
+                                                </p>
+                                            </span>
+                                            <p>
+                                                {% get_additional_data 'comment1' user_site as comment1 %}
+                                                   <p  id="comment1">
+                                                      {{comment1.label|default:"--"}}
+                                                   </p>
+                                            </p>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <div class="avatar">
+                                                   {% get_additional_data 'photouser2' user_site as photouser2 %}
+                                                      <p  id="photouser2">
+                                                         <img src="{{photouser2.photo.url|default:'--'}}">
+                                                      </p>
+                                                </div>
+                                                <div class="comment">
+                                                    <span class="uppercase author">
+                                                       {% get_additional_data 'Usercomment2' user_site as Usercomment2 %}
+                                                         <p  id="Usercomment2">
+                                                            {{Usercomment2.label|default:"--"}}
+                                                         </p>
+                                                    </span>
+                                                    <p>
+                                                        {% get_additional_data 'comment2' user_site as comment2 %}
+                                                            <p  id="comment2">
+                                                               {{comment2.label|default:"--"}}
+                                                            </p>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="avatar">
+                                            {% get_additional_data 'photouser3' user_site as photouser3 %}
+                                                <p  id="photouser3">
+                                                   <img src="{{photouser3.photo.url|default:'--'}}">
+                                                </p>
+                                        </div>
+                                        <div class="comment">
+                                            <span class="uppercase author">
+                                               {% get_additional_data 'Usercomment3' user_site as Usercomment3 %}
+                                                   <p  id="Usercomment3">
+                                                      {{Usercomment3.label|default:"--"}}
+                                                   </p>
+                                            </span>
+                                            <p>
+                                                {% get_additional_data 'comment2' user_site as comment2 %}
+                                                   <p  id="comment2">
+                                                      {{comment2.label|default:"--"}}
+                                                   </p>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <hr>
+                                {% get_additional_data 'textundercomment' user_site as textundercomment %}
+                                    <h5 class="uppercase"  id="textundercomment">
+                                       {{textundercomment.label|default:"--"}}
+                                    </h5>
+                                <form>
+                                    <input name="name" type="text" placeholder="Your Name" />
+                                    <input name="email" type="text" placeholder="Email Address" />
+                                    <textarea rows="3" placeholder="Comment"></textarea>
+                                    <input type="submit" value="Leave Comment" />
+                                </form>
+                            </div>
+                            <!--end of comments-->
+                        </div>
+                        <!--end of nine col-->
+                    </div>
+                    <!--end of container row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+{% endblock %}
+
+{% block domready %}
+  $(document).on("change", ".change-photo", function() {
+    var id = $(this).data('id')
+    alert(id)
+  })
+
+
+  $(document).on("blur", ".update-good", function() {
+    var id = $(this).data('id')
+    var type = $(this).data('type')
+    var text = $(this).text()
+    $.ajax({
+      url: "{% url 'clothes:update_title' user_site=user_site %}",
+      type: 'GET',
+      data:{id:id, text:text, type: type},
+      error: function(jqXHR, textStatus, errorThrown) {
+          alert(jqXHR.responseText)
+      },
+      success:function (data) {
+      }
+    })
+  });
+  $(document).on("blur", ".update-additional-data", function() {
+    var element_id = $(this).data('element_id')
+    var type = $(this).data('type')
+    var text = $(this).text()
+    $.ajax({
+      url: "{% url 'clothes:update_additional_data' user_site=user_site %}",
+      type: 'GET',
+      data:{element_id:element_id, text:text, type: type},
+      error: function(jqXHR, textStatus, errorThrown) {
+          alert(jqXHR.responseText)
+      },
+      success:function (data) {
+      }
+    })
+  });
+  
+
+  $(document).on("click", ".delete-good", function() {
+    var id = $(this).data('id')
+    var _this = $(this)
+    $.ajax({
+      url: "{% url 'clothes:delete_good' user_site=user_site %}",
+      type: 'GET',
+      data:{id:id},
+      error: function(jqXHR, textStatus, errorThrown) {
+          alert(jqXHR.responseText)
+      },
+      success:function (data) {
+      _this.closest('.col-md-4').remove()
+      }
+    })
+  });
+
+  $(document).on("click", ".update-photo-on-slide", function() {
+    var element_id = $('.update-photo').data('element_id')
+    alert(element_id)
+  });
+
+  
+{% endblock %}
